@@ -66,7 +66,7 @@ public class frmContatoVIEW extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTable1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("LISTA TELEÔNICA");
+        setTitle("LISTA TELEFÔNICA");
         setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         setFont(new java.awt.Font("Courier New", 0, 10)); // NOI18N
         setForeground(java.awt.Color.darkGray);
@@ -140,7 +140,7 @@ public class frmContatoVIEW extends javax.swing.JFrame {
         getContentPane().add(btnDELETA);
         btnDELETA.setBounds(60, 300, 120, 23);
 
-        btnCarregarCampos.setText("CARREGAR CAMPOS");
+        btnCarregarCampos.setText("SELECIONAR");
         btnCarregarCampos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCarregarCamposActionPerformed(evt);
@@ -167,7 +167,6 @@ public class frmContatoVIEW extends javax.swing.JFrame {
         getContentPane().add(btnAtualizar);
         btnAtualizar.setBounds(210, 300, 110, 23);
 
-        tabelaContato.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         tabelaContato.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -184,11 +183,11 @@ public class frmContatoVIEW extends javax.swing.JFrame {
         getContentPane().add(jScrollPane2);
         jScrollPane2.setBounds(370, 50, 290, 320);
 
-        jPanel1.setBackground(new java.awt.Color(90, 90, 90));
+        jPanel1.setBackground(new java.awt.Color(75, 75, 75));
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(0, 0, 690, 530);
+        jPanel1.setBounds(0, 0, 690, 510);
 
-        setSize(new java.awt.Dimension(700, 450));
+        setSize(new java.awt.Dimension(701, 423));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -337,17 +336,23 @@ public class frmContatoVIEW extends javax.swing.JFrame {
         email = txtEmail.getText(); 
         id = Integer.parseInt(txtId.getText());
         
-            ContatoDTO objcontatodto = new ContatoDTO();
-            objcontatodto.setNome(nome);
-            objcontatodto.setEmail(email);
-            objcontatodto.setTelefone(telefone);
-            objcontatodto.setId(id);
+        try {
+            if(!txtId.getText().isEmpty()){
+                ContatoDTO objcontatodto = new ContatoDTO();
+                objcontatodto.setNome(nome);
+                objcontatodto.setEmail(email);
+                objcontatodto.setTelefone(telefone);
+                objcontatodto.setId(id);
         
-            ContatoDAO objcontatodao = new ContatoDAO();
-            objcontatodao.EditarContato(objcontatodto);
+                ContatoDAO objcontatodao = new ContatoDAO();
+                objcontatodao.EditarContato(objcontatodto);
         
-            listarValoresContato();
-       
+                listarValoresContato();
+            }
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(null, "Botao Atualizar"+erro);
+        }
+            
     }
     
     public void DeletarContatos(){

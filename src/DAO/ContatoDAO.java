@@ -64,6 +64,7 @@ public class ContatoDAO {
         conn = new ConexaoDAO().conectaBd();
         
         try {
+            
             pstm = conn.prepareStatement(sql);
             
             pstm.setString(1, objcontatodto.getNome());
