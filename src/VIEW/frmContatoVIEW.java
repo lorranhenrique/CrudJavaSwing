@@ -7,6 +7,7 @@ package VIEW;
 import DAO.ContatoDAO;
 import DTO.ContatoDTO;
 import java.util.ArrayList;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -22,6 +23,9 @@ public class frmContatoVIEW extends javax.swing.JFrame {
     public frmContatoVIEW() {
         initComponents();
         listarValoresContato();
+        //setExtendedState(MAXIMIZED_BOTH);
+        setLocationRelativeTo(null);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }
 
     /**
@@ -35,22 +39,22 @@ public class frmContatoVIEW extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        txtNome = new javax.swing.JTextField();
-        txtEmail = new javax.swing.JTextField();
         txtTelefone = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        txtId = new javax.swing.JTextField();
-        btnCadastrar = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
         btnDELETA = new javax.swing.JButton();
-        btnCarregarCampos = new javax.swing.JButton();
-        btnLimpar = new javax.swing.JButton();
+        btnCadastrar = new javax.swing.JButton();
         btnAtualizar = new javax.swing.JButton();
+        btnLimpar = new javax.swing.JButton();
+        btnCarregarCampos = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tabelaContato = new javax.swing.JTable();
-        jPanel1 = new javax.swing.JPanel();
+        txtEmail = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        txtNome = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        txtId = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -70,66 +74,24 @@ public class frmContatoVIEW extends javax.swing.JFrame {
         setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         setFont(new java.awt.Font("Courier New", 0, 10)); // NOI18N
         setForeground(java.awt.Color.darkGray);
+        setLocation(new java.awt.Point(0, 0));
         setMinimumSize(new java.awt.Dimension(700, 500));
         getContentPane().setLayout(null);
-
-        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel1.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("NOME");
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(65, 85, 37, 17);
-
-        jLabel2.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel2.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("EMAIL");
-        getContentPane().add(jLabel2);
-        jLabel2.setBounds(65, 135, 50, 17);
 
         jLabel3.setBackground(new java.awt.Color(255, 255, 255));
         jLabel3.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("TELEFONE");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(65, 185, 110, 17);
-
-        txtNome.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
-        getContentPane().add(txtNome);
-        txtNome.setBounds(65, 107, 254, 23);
-
-        txtEmail.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
-        getContentPane().add(txtEmail);
-        txtEmail.setBounds(65, 157, 254, 23);
+        jLabel3.setBounds(60, 200, 110, 17);
 
         txtTelefone.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
         getContentPane().add(txtTelefone);
-        txtTelefone.setBounds(65, 207, 254, 23);
+        txtTelefone.setBounds(60, 220, 260, 23);
 
-        jLabel4.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel4.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("CÓDIGO");
-        getContentPane().add(jLabel4);
-        jLabel4.setBounds(65, 29, 70, 17);
-
-        txtId.setEnabled(false);
-        txtId.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtIdActionPerformed(evt);
-            }
-        });
-        getContentPane().add(txtId);
-        txtId.setBounds(65, 51, 111, 22);
-
-        btnCadastrar.setText("CADASTRAR");
-        btnCadastrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCadastrarActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnCadastrar);
-        btnCadastrar.setBounds(210, 260, 110, 23);
+        jPanel1.setBackground(new java.awt.Color(75, 75, 75));
+        jPanel1.setMinimumSize(new java.awt.Dimension(32767, 32767));
+        jPanel1.setLayout(null);
 
         btnDELETA.setText("DELETAR");
         btnDELETA.addActionListener(new java.awt.event.ActionListener() {
@@ -137,26 +99,17 @@ public class frmContatoVIEW extends javax.swing.JFrame {
                 btnDELETAActionPerformed(evt);
             }
         });
-        getContentPane().add(btnDELETA);
-        btnDELETA.setBounds(60, 300, 120, 23);
+        jPanel1.add(btnDELETA);
+        btnDELETA.setBounds(60, 260, 120, 23);
 
-        btnCarregarCampos.setText("SELECIONAR");
-        btnCarregarCampos.addActionListener(new java.awt.event.ActionListener() {
+        btnCadastrar.setText("CADASTRAR");
+        btnCadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCarregarCamposActionPerformed(evt);
+                btnCadastrarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnCarregarCampos);
-        btnCarregarCampos.setBounds(60, 340, 260, 23);
-
-        btnLimpar.setText("LIMPAR");
-        btnLimpar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLimparActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnLimpar);
-        btnLimpar.setBounds(60, 260, 120, 23);
+        jPanel1.add(btnCadastrar);
+        btnCadastrar.setBounds(200, 260, 120, 23);
 
         btnAtualizar.setText("ATUALIZAR");
         btnAtualizar.addActionListener(new java.awt.event.ActionListener() {
@@ -164,8 +117,26 @@ public class frmContatoVIEW extends javax.swing.JFrame {
                 btnAtualizarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnAtualizar);
-        btnAtualizar.setBounds(210, 300, 110, 23);
+        jPanel1.add(btnAtualizar);
+        btnAtualizar.setBounds(60, 290, 120, 23);
+
+        btnLimpar.setText("LIMPAR");
+        btnLimpar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimparActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnLimpar);
+        btnLimpar.setBounds(200, 290, 120, 23);
+
+        btnCarregarCampos.setText("CARREGAR CAMPOS");
+        btnCarregarCampos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCarregarCamposActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnCarregarCampos);
+        btnCarregarCampos.setBounds(60, 320, 260, 23);
 
         tabelaContato.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -180,10 +151,52 @@ public class frmContatoVIEW extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(tabelaContato);
 
-        getContentPane().add(jScrollPane2);
-        jScrollPane2.setBounds(370, 50, 290, 320);
+        jPanel1.add(jScrollPane2);
+        jScrollPane2.setBounds(350, 30, 290, 320);
 
-        jPanel1.setBackground(new java.awt.Color(75, 75, 75));
+        txtEmail.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
+        jPanel1.add(txtEmail);
+        txtEmail.setBounds(60, 170, 260, 23);
+
+        jLabel2.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel2.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("EMAIL");
+        jPanel1.add(jLabel2);
+        jLabel2.setBounds(60, 150, 50, 17);
+
+        txtNome.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
+        txtNome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNomeActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txtNome);
+        txtNome.setBounds(60, 120, 260, 23);
+
+        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel1.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("NOME");
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(60, 100, 37, 17);
+
+        txtId.setEnabled(false);
+        txtId.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtIdActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txtId);
+        txtId.setBounds(60, 60, 111, 22);
+
+        jLabel4.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel4.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("CÓDIGO");
+        jPanel1.add(jLabel4);
+        jLabel4.setBounds(60, 40, 70, 17);
+
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 0, 690, 510);
 
@@ -200,6 +213,7 @@ public class frmContatoVIEW extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCarregarCamposActionPerformed
 
     private void btnDELETAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDELETAActionPerformed
+        CarregarCampos();
         DeletarContatos();
         LimparCampos();
     }//GEN-LAST:event_btnDELETAActionPerformed
@@ -217,6 +231,10 @@ public class frmContatoVIEW extends javax.swing.JFrame {
         CadastrarContatos();
         LimparCampos();
     }//GEN-LAST:event_btnCadastrarActionPerformed
+
+    private void txtNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNomeActionPerformed
 
     /**
      * @param args the command line arguments
